@@ -82,3 +82,11 @@ window.addEventListener('load', function() {
         }, 1000);
     }, 500);
 });
+
+// Observe all timeline items, project cards, skill categories, and photo items
+document.querySelectorAll('.timeline-item, .project-card, .skill-category, .photo-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
