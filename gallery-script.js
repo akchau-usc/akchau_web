@@ -1,255 +1,358 @@
-// Gallery JavaScript - Save as gallery-script.js
+// Photo galleries
+const galleries = {
+    "sf": [
+        "photos/sf/_SCF4026.JPG",
+        "photos/sf/_SCF3402.JPG",
+        "photos/sf/_SCF3833.JPG",
+        "photos/sf/_SCF4033.JPG",
+        "photos/sf/_SCF3574.JPG",
+        "photos/sf/_SCF4025.JPG",
+        "photos/sf/_SCF4019.JPG",
+        "photos/sf/_SCF3831.JPG",
+        "photos/sf/_SCF3428.JPG",
+        "photos/sf/_SCF3818.JPG",
+        "photos/sf/_SCF4030.JPG",
+        "photos/sf/_SCF4024.JPG",
+        "photos/sf/_SCF3575.JPG",
+        "photos/sf/_SCF4008.JPG",
+        "photos/sf/_SCF4020.JPG",
+        "photos/sf/_SCF3820.JPG",
+        "photos/sf/_SCF3377.JPG",
+        "photos/sf/_SCF3410.JPG",
+        "photos/sf/_SCF3389.JPG",
+        "photos/sf/_SCF3957.JPG",
+        "photos/sf/_SCF3837.JPG",
+        "photos/sf/_SCF3407.JPG",
+        "photos/sf/_SCF3836.JPG",
+        "photos/sf/_SCF3573.JPG",
+        "photos/sf/_SCF3528.JPG",
+        "photos/sf/_SCF3500.JPG",
+        "photos/sf/_SCF3514.JPG",
+        "photos/sf/_SCF3925.JPG",
+        "photos/sf/_SCF3919.JPG",
+        "photos/sf/_SCF3878.JPG",
+        "photos/sf/_SCF3717.JPG",
+        "photos/sf/_SCF3517.JPG",
+        "photos/sf/_SCF3503.JPG",
+        "photos/sf/_SCF3926.JPG",
+        "photos/sf/_SCF3852.JPG",
+        "photos/sf/_SCF3338.JPG",
+        "photos/sf/_SCF3506.JPG",
+        "photos/sf/_SCF3738.JPG",
+        "photos/sf/_SCF3881.JPG",
+        "photos/sf/_SCF3922.JPG",
+        "photos/sf/_SCF3507.JPG",
+        "photos/sf/_SCF3539.JPG",
+        "photos/sf/_SCF3854.JPG",
+        "photos/sf/_SCF3882.JPG",
+        "photos/sf/_SCF3672.JPG",
+        "photos/sf/_SCF3538.JPG",
+        "photos/sf/_SCF3521.JPG",
+        "photos/sf/_SCF3910.JPG",
+        "photos/sf/_SCF3870.JPG",
+        "photos/sf/_SCF3858.JPG",
+        "photos/sf/_SCF3497.JPG",
+        "photos/sf/_SCF3871.JPG",
+        "photos/sf/_SCF3905.JPG",
+        "photos/sf/_SCF3520.JPG",
+        "photos/sf/_SCF3508.JPG",
+        "photos/sf/_SCF3873.JPG",
+        "photos/sf/_SCF3324.JPG",
+        "photos/sf/_SCF3457.JPG",
+        "photos/sf/_SCF3494.JPG",
+        "photos/sf/_SCF3669.JPG",
+        "photos/sf/_SCF3682.JPG",
+        "photos/sf/_SCF3735.JPG",
+        "photos/sf/_SCF3912.JPG",
+        "photos/sf/_SCF3523.JPG",
+        "photos/sf/_SCF3537.JPG",
+        "photos/sf/_SCF3533.JPG",
+        "photos/sf/_SCF3916.JPG",
+        "photos/sf/_SCF3719.JPG",
+        "photos/sf/_SCF3321.JPG",
+        "photos/sf/_SCF3320.JPG",
+        "photos/sf/_SCF3524.JPG",
+        "photos/sf/_SCF3915.JPG",
+        "photos/sf/_SCF3849.JPG",
+        "photos/sf/_SCF3323.JPG",
+        "photos/sf/_SCF3928.JPG",
+        "photos/sf/_SCF4013.JPG",
+        "photos/sf/_SCF4007.JPG",
+        "photos/sf/_SCF3740.JPG",
+        "photos/sf/_SCF3387.JPG",
+        "photos/sf/_SCF3378.JPG",
+        "photos/sf/_SCF3344.JPG",
+        "photos/sf/_SCF3345.JPG",
+        "photos/sf/_SCF3379.JPG",
+        "photos/sf/_SCF3386.JPG",
+        "photos/sf/_SCF3582.JPG",
+        "photos/sf/_SCF3970.JPG",
+        "photos/sf/_SCF3780.JPG",
+        "photos/sf/_SCF3409.JPG",
+        "photos/sf/_SCF3408.JPG",
+        "photos/sf/_SCF3391.JPG",
+        "photos/sf/_SCF3587.JPG",
+        "photos/sf/_SCF3961.JPG",
+        "photos/sf/_SCF3342.JPG",
+        "photos/sf/_SCF3343.JPG",
+        "photos/sf/_SCF3790.JPG",
+        "photos/sf/_SCF3586.JPG",
+        "photos/sf/_SCF3340.JPG",
+        "photos/sf/_SCF3546.JPG"
+    ],
+    "seattle": [
+        // Add Seattle photos here when ready
+    ],
+    "palos-verdes": [
+        "photos/palos verdes/DSCF3136.JPG"
+        // Add more Palos Verdes photos here when ready
+    ]
+};
 
+let currentGallery = [];
 let currentImageIndex = 0;
 
-// Image data - Replace placeholder with actual image paths
-const images = [
-    { 
-        title: "Golden Gate Bridge at Sunset", 
-        src: "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3136.JPG",
-        placeholder: "📸 Golden Gate Bridge at Sunset" 
-    },
-    { 
-        title: "Downtown SF Skyline", 
-        src: "photos/downtown-skyline.jpg",
-        placeholder: "🏙️ Downtown SF Skyline" 
-    },
-    { 
-        title: "Alcatraz Island", 
-        src: "photos/alcatraz.jpg",
-        placeholder: "🌊 Alcatraz Island" 
-    },
-    { 
-        title: "Cable Car on Lombard Street", 
-        src: "photos/cable-car.jpg",
-        placeholder: "🚋 Cable Car on Lombard Street" 
-    },
-    { 
-        title: "Fog Rolling Over Hills", 
-        src: "photos/morning-fog.jpg",
-        placeholder: "🌫️ Fog Rolling Over Hills" 
-    },
-    { 
-        title: "Bay Bridge Night Lights", 
-        src: "photos/bay-bridge-night.jpg",
-        placeholder: "🌉 Bay Bridge Night Lights" 
+// Gallery functions
+function openGallery(location) {
+    if (galleries[location] && galleries[location].length > 0) {
+        currentGallery = galleries[location];
+        showPhotoGrid(location);
+    } else {
+        alert(`${location.charAt(0).toUpperCase() + location.slice(1).replace('-', ' ')} gallery coming soon!`);
     }
-];
-
-// Function to open lightbox with specific image
-function openLightbox(index) {
-    currentImageIndex = index;
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    
-    // Check if actual image exists, otherwise show placeholder
-    const img = new Image();
-    img.onload = function() {
-        // Image loaded successfully, display it
-        lightboxImage.innerHTML = `<img src="${images[index].src}" alt="${images[index].title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">`;
-    };
-    img.onerror = function() {
-        // Image failed to load, show placeholder
-        lightboxImage.innerHTML = `<div style="width: 600px; height: 400px; background: linear-gradient(135deg, #a2b0f0, #ad7edc); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; border-radius: 10px;">${images[index].placeholder}</div>`;
-    };
-    img.src = images[index].src;
-    
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
 }
 
-// Function to close lightbox
-function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Restore scrolling
-}
-
-// Function to show next image
-function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    const lightboxImage = document.getElementById('lightbox-image');
+function showPhotoGrid(location) {
+    const modal = document.getElementById('gallery-modal');
+    const modalContent = modal.querySelector('.modal-content');
     
-    // Check if actual image exists, otherwise show placeholder
-    const img = new Image();
-    img.onload = function() {
-        lightboxImage.innerHTML = `<img src="${images[currentImageIndex].src}" alt="${images[currentImageIndex].title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">`;
-    };
-    img.onerror = function() {
-        lightboxImage.innerHTML = `<div style="width: 600px; height: 400px; background: linear-gradient(135deg, #a2b0f0, #ad7edc); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; border-radius: 10px;">${images[currentImageIndex].placeholder}</div>`;
-    };
-    img.src = images[currentImageIndex].src;
-}
-
-// Function to show previous image
-function previousImage() {
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-    const lightboxImage = document.getElementById('lightbox-image');
+    // Clear existing content
+    modalContent.innerHTML = '';
     
-    // Check if actual image exists, otherwise show placeholder
-    const img = new Image();
-    img.onload = function() {
-        lightboxImage.innerHTML = `<img src="${images[currentImageIndex].src}" alt="${images[currentImageIndex].title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">`;
-    };
-    img.onerror = function() {
-        lightboxImage.innerHTML = `<div style="width: 600px; height: 400px; background: linear-gradient(135deg, #a2b0f0, #ad7edc); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; border-radius: 10px;">${images[currentImageIndex].placeholder}</div>`;
-    };
-    img.src = images[currentImageIndex].src;
-}
-
-// Event Listeners
-document.addEventListener('DOMContentLoaded', function() {
+    // Create header with close button and title
+    const header = document.createElement('div');
+    header.className = 'grid-header';
+    header.innerHTML = `
+        <h3 class="grid-title">${location.charAt(0).toUpperCase() + location.slice(1).replace('-', ' ')} Gallery</h3>
+        <span class="close">&times;</span>
+    `;
+    modalContent.appendChild(header);
     
-    // Close lightbox when clicking outside the image
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox) {
-        lightbox.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
-        });
-    }
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (lightbox && lightbox.classList.contains('active')) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            } else if (e.key === 'ArrowRight') {
-                nextImage();
-            } else if (e.key === 'ArrowLeft') {
-                previousImage();
-            }
-        }
+    // Create photo grid container
+    const gridContainer = document.createElement('div');
+    gridContainer.className = 'photo-grid';
+    
+    // Add photos to grid
+    currentGallery.forEach((photo, index) => {
+        const gridItem = document.createElement('div');
+        gridItem.className = 'grid-item';
+        gridItem.innerHTML = `<img src="${photo}" alt="Photo ${index + 1}" loading="lazy">`;
+        gridItem.onclick = () => openImageViewer(index);
+        gridContainer.appendChild(gridItem);
     });
-
-    // Animate cards on load
-    const cards = document.querySelectorAll('.photo-card');
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        
-        setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
-
-    // Add loading effect to gallery stats
-    const statNumbers = document.querySelectorAll('.stat-number');
-    statNumbers.forEach((stat, index) => {
-        stat.style.opacity = '0';
-        stat.style.transform = 'scale(0.5)';
-        stat.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        
-        setTimeout(() => {
-            stat.style.opacity = '1';
-            stat.style.transform = 'scale(1)';
-        }, 500 + (index * 200));
-    });
-});
-
-// Function to preload images for better performance
-function preloadImages() {
-    images.forEach(imageData => {
-        const img = new Image();
-        img.src = imageData.src;
-    });
+    
+    modalContent.appendChild(gridContainer);
+    modal.style.display = 'block';
+    
+    // Add event listener for close button
+    const closeBtn = modalContent.querySelector('.close');
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+    };
 }
 
-// Call preload when page loads
-window.addEventListener('load', preloadImages);
-
-// Function to update gallery stats dynamically
-function updateGalleryStats(photoCount, locationCount, year, camera) {
-    const stats = document.querySelectorAll('.stat-number');
-    if (stats.length >= 4) {
-        stats[0].textContent = photoCount;
-        stats[1].textContent = locationCount;
-        stats[2].textContent = year;
-        stats[3].textContent = camera;
-    }
-}
-
-// Touch/swipe support for mobile devices
-let startX = 0;
-let endX = 0;
-
-document.addEventListener('touchstart', function(e) {
-    if (document.getElementById('lightbox').classList.contains('active')) {
-        startX = e.touches[0].clientX;
-    }
-});
-
-document.addEventListener('touchend', function(e) {
-    if (document.getElementById('lightbox').classList.contains('active')) {
-        endX = e.changedTouches[0].clientX;
-        handleSwipe();
-    }
-});
-
-function handleSwipe() {
-    const swipeThreshold = 50; // Minimum distance for a swipe
-    const difference = startX - endX;
+function openImageViewer(startIndex) {
+    currentImageIndex = startIndex;
+    const modal = document.getElementById('gallery-modal');
+    const modalContent = modal.querySelector('.modal-content');
     
-    if (Math.abs(difference) > swipeThreshold) {
-        if (difference > 0) {
-            // Swipe left - next image
-            nextImage();
-        } else {
-            // Swipe right - previous image
-            previousImage();
-        }
-    }
-}
-
-// Function to dynamically add photos to gallery
-function addPhotoToGallery(imageData, insertBefore = null) {
-    images.push(imageData);
-    
-    const photoGrid = document.querySelector('.photo-grid');
-    const photoCard = document.createElement('div');
-    photoCard.className = 'photo-card';
-    photoCard.onclick = () => openLightbox(images.length - 1);
-    
-    photoCard.innerHTML = `
-        <div class="photo-container">
-            <img src="${imageData.src}" alt="${imageData.title}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='<span>${imageData.placeholder}</span>'">
-        </div>
-        <div class="photo-info">
-            <h3>${imageData.title}</h3>
-            <p>${imageData.description || 'Beautiful capture from San Francisco.'}</p>
-            <div class="photo-meta">
-                <span>📅 ${imageData.date || 'Recent'}</span>
-                <span>📍 ${imageData.location || 'San Francisco'}</span>
-                <span>⚙️ ${imageData.settings || 'Various settings'}</span>
-            </div>
+    // Clear grid content and show image viewer
+    modalContent.innerHTML = `
+        <span class="close">&times;</span>
+        <button class="back-to-grid">← Back to Grid</button>
+        <img id="modal-image" src="${currentGallery[currentImageIndex]}" alt="">
+        <button class="nav-btn prev-btn">&#8249;</button>
+        <button class="nav-btn next-btn">&#8250;</button>
+        <div class="image-counter">
+            <span id="current-image">${currentImageIndex + 1}</span> / <span id="total-images">${currentGallery.length}</span>
         </div>
     `;
     
-    if (insertBefore) {
-        photoGrid.insertBefore(photoCard, insertBefore);
-    } else {
-        photoGrid.appendChild(photoCard);
-    }
+    // Add event listeners
+    const closeBtn = modalContent.querySelector('.close');
+    const backBtn = modalContent.querySelector('.back-to-grid');
+    const nextBtn = modalContent.querySelector('.next-btn');
+    const prevBtn = modalContent.querySelector('.prev-btn');
     
-    // Animate the new card
-    photoCard.style.opacity = '0';
-    photoCard.style.transform = 'translateY(30px)';
-    setTimeout(() => {
-        photoCard.style.opacity = '1';
-        photoCard.style.transform = 'translateY(0)';
-    }, 100);
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+    };
+    
+    backBtn.onclick = () => {
+        // Get the current gallery location from the current gallery array
+        const location = Object.keys(galleries).find(key => galleries[key] === currentGallery);
+        showPhotoGrid(location);
+    };
+    
+    nextBtn.onclick = nextImage;
+    prevBtn.onclick = prevImage;
 }
 
-// Example usage of adding a new photo:
-// addPhotoToGallery({
-//     title: "New San Francisco Photo",
-//     src: "photos/new-photo.jpg",
-//     placeholder: "📸 New Photo",
-//     description: "A beautiful new capture",
-//     date: "June 2025",
-//     location: "Fisherman's Wharf",
-//     settings: "f/5.6, 1/200s"
-// });
+function showImage() {
+    const modalImage = document.getElementById('modal-image');
+    const currentImageSpan = document.getElementById('current-image');
+    const totalImagesSpan = document.getElementById('total-images');
+    
+    if (modalImage) {
+        modalImage.src = currentGallery[currentImageIndex];
+    }
+    if (currentImageSpan) {
+        currentImageSpan.textContent = currentImageIndex + 1;
+    }
+    if (totalImagesSpan) {
+        totalImagesSpan.textContent = currentGallery.length;
+    }
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+    showImage();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+    showImage();
+}
+
+// Initialize event listeners when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('gallery-modal');
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (modal && modal.style.display === 'block') {
+            const modalContent = modal.querySelector('.modal-content');
+            const isImageViewer = modalContent.querySelector('#modal-image');
+            const isPhotoGrid = modalContent.querySelector('.photo-grid');
+            
+            if (isImageViewer) {
+                // Image viewer keyboard controls
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'Escape') modal.style.display = 'none';
+                if (e.key === 'Backspace' || e.key === 'b' || e.key === 'B') {
+                    e.preventDefault();
+                    const location = Object.keys(galleries).find(key => galleries[key] === currentGallery);
+                    showPhotoGrid(location);
+                }
+            } else if (isPhotoGrid) {
+                // Photo grid keyboard controls
+                if (e.key === 'Escape') modal.style.display = 'none';
+            }
+        }
+    });
+
+    // Close modal when clicking outside the content
+    if (modal) {
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    }
+
+    // Add CSS styles for the new elements
+    const style = document.createElement('style');
+    style.textContent = `
+        .grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 10px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        .grid-title {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .grid-item {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: #f5f5f5;
+        }
+        
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.2s ease;
+        }
+        
+        .grid-item img:hover {
+            opacity: 0.9;
+        }
+        
+        .back-to-grid {
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s ease;
+            z-index: 1001;
+        }
+        
+        .back-to-grid:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 10px;
+            }
+            
+            .grid-header {
+                padding: 15px 0 8px 0;
+            }
+            
+            .grid-title {
+                font-size: 1.2em;
+            }
+            
+            .back-to-grid {
+                top: 50px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});

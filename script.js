@@ -90,3 +90,56 @@ document.querySelectorAll('.timeline-item, .project-card, .skill-category, .phot
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+let currentGallery = [];
+let currentImageIndex = 0;
+
+// Open gallery function
+function openGallery(location) {
+  // Define your photo arrays for each location
+  const galleries = {
+    'san-francisco': ['path/to/sf1.jpg', 'path/to/sf2.jpg', ...],
+    'seattle': ['path/to/seattle1.jpg', 'path/to/seattle2.jpg', ...],
+    'palos-verdes': ['path/to/pv1.jpg', 'path/to/pv2.jpg', ...]
+  };
+  
+  currentGallery = galleries[location];
+  currentImageIndex = 0;
+  showImage();
+  document.getElementById('gallery-modal').style.display = 'block';
+}
+
+// Show current image
+function showImage() {
+  document.getElementById('modal-image').src = currentGallery[currentImageIndex];
+  document.getElementById('current-image').textContent = currentImageIndex + 1;
+  document.getElementById('total-images').textContent = currentGallery.length;
+}
+
+// Navigation
+function nextImage() {
+  currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+  showImage();
+}
+
+function prevImage() {
+  currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+  showImage();
+}
+
+// Event listeners
+document.querySelector('.close').onclick = () => {
+  document.getElementById('gallery-modal').style.display = 'none';
+}
+
+document.querySelector('.next-btn').onclick = nextImage;
+document.querySelector('.prev-btn').onclick = prevImage;
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('gallery-modal').style.display === 'block') {
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'Escape') document.getElementById('gallery-modal').style.display = 'none';
+  }
+});
