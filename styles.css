@@ -281,7 +281,7 @@ nav {
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(81, 31, 31, 0.1);
     transition: all 0.3s ease;
     position: relative;
 }
@@ -292,7 +292,7 @@ nav {
 }
 
 .project-header {
-    background: linear-gradient(135deg, #eeeeee8f, #d0c9d6);
+    background: linear-gradient(135deg, #d48ee28f, #ffffff);
     color: rgb(0, 0, 0);
     padding: 1.5rem;
 }
@@ -434,9 +434,9 @@ nav {
     text-align: center;
     margin-top: 2rem;
     padding: 1.5rem;
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(210, 215, 224, 0.368);
     border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #ffffff;
 }
 
 .photography-note p {
@@ -497,7 +497,7 @@ nav {
 
 /* Contact Section */
 .contact {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #aeb9e7 0%, #d0aaf6 100%);
     color: white;
     text-align: center;
 }
