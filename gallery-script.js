@@ -100,12 +100,53 @@ const galleries = {
         "photos/sf/_SCF3340.JPG",
         "photos/sf/_SCF3546.JPG"
     ],
+
     "seattle": [
-        // Add Seattle photos here when ready
-    ],
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (19).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (8).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (22).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (20).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (18).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (21).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (9).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (23).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (12).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (5).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (7).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (10).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (14).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (3).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (1).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (16).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (6).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (11).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (13).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.53 (1).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (4).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (17).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (15).jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54.jpeg",
+        "photos/seattle/WhatsApp Image 2025-09-25 at 13.13.54 (2).jpeg"
+        ],
+
+
     "palos-verdes": [
-        "photos/palos verdes/DSCF3136.JPG"
-        // Add more Palos Verdes photos here when ready
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3138.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3229.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3294 copy.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3163.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3167.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3172.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3168.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3182.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3141.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3194.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3181.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3146.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3185.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3233.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3137.JPG",
+        "/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes/DSCF3136.JPG"
     ]
 };
 

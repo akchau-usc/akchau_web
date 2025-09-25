@@ -3,7 +3,7 @@ import json
 
 # Configuration
 photo_folders = {
-    'san-francisco': 'photos/sf',
+    'san-francisco': '/Users/annachau/Documents/personal website/akchau_web/photos/palos verdes',
 }
 
 image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.JPG', '.JPEG', '.PNG', '.GIF', '.WEBP')
