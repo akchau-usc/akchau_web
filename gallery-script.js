@@ -166,6 +166,8 @@ function openGallery(location) {
 function showPhotoGrid(location) {
     const modal = document.getElementById('gallery-modal');
     const modalContent = modal.querySelector('.modal-content');
+    // ensure we are not in viewer mode
+    modalContent.classList.remove('viewer-mode');
     
     // Clear existing content
     modalContent.innerHTML = '';
@@ -183,11 +185,17 @@ function showPhotoGrid(location) {
     const gridContainer = document.createElement('div');
     gridContainer.className = 'photo-grid';
     
-    // Add photos to grid
+    // Add photos to grid (use thumbnails when available, fallback to full image)
     currentGallery.forEach((photo, index) => {
         const gridItem = document.createElement('div');
         gridItem.className = 'grid-item';
-        gridItem.innerHTML = `<img src="${photo}" alt="Photo ${index + 1}" loading="lazy">`;
+
+        // compute thumbnail path: photos/<gallery>/thumbs/<basename>_thumb.jpg
+        const thumbMatch = photo.match(/^(photos\/[^\/]+)\/(.+)\.(jpg|jpeg|png|gif|webp|JPG|JPEG|PNG|GIF|WEBP)$/);
+        const thumb = thumbMatch ? `${thumbMatch[1]}/thumbs/${thumbMatch[2]}_thumb.jpg` : photo;
+
+        // Use thumbnail as src and fall back to full image if thumbnail 404s
+        gridItem.innerHTML = `<img src="${thumb}" alt="Photo ${index + 1}" loading="lazy" onerror="this.onerror=null;this.src='${photo}';">`;
         gridItem.onclick = () => openImageViewer(index);
         gridContainer.appendChild(gridItem);
     });
@@ -198,7 +206,8 @@ function showPhotoGrid(location) {
     // Add event listener for close button
     const closeBtn = modalContent.querySelector('.close');
     closeBtn.onclick = () => {
-        modal.style.display = 'none';
+    modal.style.display = 'none';
+    modalContent.classList.remove('viewer-mode');
     };
 }
 
@@ -206,6 +215,8 @@ function openImageViewer(startIndex) {
     currentImageIndex = startIndex;
     const modal = document.getElementById('gallery-modal');
     const modalContent = modal.querySelector('.modal-content');
+    // switch to viewer mode to center the image
+    modalContent.classList.add('viewer-mode');
     
     // Clear grid content and show image viewer
     modalContent.innerHTML = `
@@ -298,6 +309,8 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.onclick = (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
+                const modalContent = modal.querySelector('.modal-content');
+                if (modalContent) modalContent.classList.remove('viewer-mode');
             }
         }
     }
@@ -322,11 +335,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            /* Use ~3 columns on desktop by making each column at least 240px */
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 15px;
             max-height: 70vh;
             overflow-y: auto;
             padding: 10px;
+            width: 100%; /* ensure grid spans full modal width so columns can form */
+        }
+
+        /* Make the grid header and title white when displayed in the modal */
+        .modal-content .grid-header,
+        .modal-content .grid-title {
+            color: white;
         }
         
         .grid-item {
@@ -353,6 +374,22 @@ document.addEventListener('DOMContentLoaded', function() {
         .grid-item img:hover {
             opacity: 0.9;
         }
+
+        /* Viewer mode centers the image and fixes its position */
+        .modal-content.viewer-mode {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .modal-content.viewer-mode #modal-image {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
         
         .back-to-grid {
             position: absolute;
@@ -373,8 +410,17 @@ document.addEventListener('DOMContentLoaded', function() {
             background: rgba(0,0,0,0.9);
         }
         
+        @media (max-width: 1024px) {
+            .photo-grid {
+                /* ~2 columns on tablet */
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 12px;
+            }
+        }
+
         @media (max-width: 768px) {
             .photo-grid {
+                /* single column on small screens */
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 gap: 10px;
             }

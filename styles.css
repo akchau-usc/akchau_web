@@ -558,9 +558,9 @@ nav {
     width: 90%;
     max-width: 1200px;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* allow content (photo grid) to flow and use full width */
+    display: block;
+    align-items: flex-start;
 }
 
 #modal-image {
