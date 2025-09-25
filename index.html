@@ -3,14 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna Chau - ML Engineer & Researcher</title>
-    <link rel="stylesheet" href="styles.css">
+        <title>Anna Chau - ML Engineer & Researcher</title>
+        <!-- Theme bootstrap: apply stored theme or system preference early to avoid FOUC -->
+        <script>
+            (function(){
+                try{
+                    var key = 'theme';
+                    var stored = localStorage.getItem(key);
+                    if(stored==='dark') document.documentElement.setAttribute('data-theme','dark');
+                    else if(stored==='light') document.documentElement.removeAttribute('data-theme');
+                    else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+                }catch(e){/* ignore */}
+            })();
+        </script>
+        <link rel="stylesheet" href="styles/theme.css">
+        <link rel="stylesheet" href="styles.css">
+        <!-- Theme script (reads/writes localStorage and respects prefers-color-scheme) -->
+        <script src="./theme.js" defer></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
+        <span class="sr-only">Toggle dark mode</span>
+        <!-- Sun (light) icon -->
+        <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M4.93 19.07l1.41-1.41"></path>
+                <path d="M17.66 6.34l1.41-1.41"></path>
+            </g>
+        </svg>
+        <!-- Moon (dark) icon -->
+        <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
+        </svg>
+    </button>
     <header>
         <nav class="container">
             <div class="logo">Anna K. Chau</div>
@@ -388,14 +424,10 @@ bias-field correction, MNI152 registration</li>
                 });
             });
 
-            // Header scroll effect
+            // Header scroll effect (theme-aware): toggle .scrolled instead of inline color
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('header');
-                if (window.scrollY > 100) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                }
+                if (window.scrollY > 100) header.classList.add('scrolled'); else header.classList.remove('scrolled');
             });
 
             // Animate elements on scroll
@@ -458,6 +490,51 @@ bias-field correction, MNI152 registration</li>
                 }, 1000);
             }, 500);
         });
+    </script>
+
+    <script>
+        // Wire the theme toggle button to the ThemeManager if available
+        (function(){
+            var btn = document.getElementById('theme-toggle');
+            if(!btn) return;
+            function updateAria() {
+                var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            }
+            btn.addEventListener('click', function(){
+                if(window.__toggleSiteTheme) window.__toggleSiteTheme();
+                else {
+                    // fallback: toggle attribute
+                    if(document.documentElement.getAttribute('data-theme') === 'dark') document.documentElement.removeAttribute('data-theme');
+                    else document.documentElement.setAttribute('data-theme','dark');
+                }
+                updateAria();
+            });
+            // sync on themechange events emitted by ThemeManager
+            window.addEventListener('themechange', updateAria);
+            // initial state
+            updateAria();
+        })();
+    </script>
+    <script>
+        // Toggle header.on-hero when header overlaps the hero section
+        (function(){
+            function updateHeaderHeroState(){
+                const header = document.querySelector('header');
+                const hero = document.querySelector('.hero');
+                if(!header || !hero) return;
+                const hRect = header.getBoundingClientRect();
+                const heroRect = hero.getBoundingClientRect();
+                // if header bottom intersects hero top area (i.e., header on top of hero), enable on-hero
+                const overlaps = heroRect.top < (hRect.bottom + 10);
+                header.classList.toggle('on-hero', overlaps && window.scrollY < 120);
+            }
+            window.addEventListener('scroll', updateHeaderHeroState, {passive:true});
+            window.addEventListener('resize', updateHeaderHeroState);
+            document.addEventListener('DOMContentLoaded', updateHeaderHeroState);
+            // Also run once after theme init
+            setTimeout(updateHeaderHeroState, 300);
+        })();
     </script>
 
 </body>
