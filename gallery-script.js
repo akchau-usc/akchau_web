@@ -134,18 +134,13 @@ const galleries = {
         "photos/palos verdes/DSCF3138.JPG",
         "photos/palos verdes/DSCF3229.JPG",
         "photos/palos verdes/DSCF3294 copy.JPG",
-        "photos/palos verdes/DSCF3163.JPG",
         "photos/palos verdes/DSCF3167.JPG",
-        "photos/palos verdes/DSCF3172.JPG",
-        "photos/palos verdes/DSCF3168.JPG",
         "photos/palos verdes/DSCF3182.JPG",
         "photos/palos verdes/DSCF3141.JPG",
         "photos/palos verdes/DSCF3194.JPG",
         "photos/palos verdes/DSCF3181.JPG",
         "photos/palos verdes/DSCF3146.JPG",
-        "photos/palos verdes/DSCF3185.JPG",
         "photos/palos verdes/DSCF3233.JPG",
-        "photos/palos verdes/DSCF3137.JPG",
         "photos/palos verdes/DSCF3136.JPG"
     ]
 };
@@ -176,7 +171,7 @@ function showPhotoGrid(location) {
     const header = document.createElement('div');
     header.className = 'grid-header';
     header.innerHTML = `
-        <h3 class="grid-title">${location.charAt(0).toUpperCase() + location.slice(1).replace('-', ' ')} Gallery</h3>
+        <h3 class="grid-title">${location.toUpperCase()} Gallery</h3>
         <span class="close">&times;</span>
     `;
     modalContent.appendChild(header);
