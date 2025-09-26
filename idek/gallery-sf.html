@@ -17,8 +17,8 @@
         body {
             font-family: 'Manrope', serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #d1d9fb 0%, #cba9ed 25%);
+                color: var(--color-text);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 20%, var(--color-surface) 80%), color-mix(in srgb, var(--color-primary) 10%, var(--color-surface) 90%));
             min-height: 100vh;
         }
 
@@ -30,10 +30,10 @@
 
         /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background: color-mix(in srgb, var(--color-surface) 95%, var(--color-bg) 5%);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(2,6,23,0.06);
             margin-bottom: 2rem;
         }
 
@@ -48,8 +48,8 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.8rem 1.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+                background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary), var(--color-surface) 40%));
+            color: var(--color-primary-foreground);
             text-decoration: none;
             border-radius: 25px;
             font-weight: 600;
@@ -69,22 +69,22 @@
         .gallery-title h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #333;
+            color: var(--color-text);
             margin-bottom: 0.5rem;
         }
 
         .gallery-title p {
-            color: #666;
+            color: var(--color-muted);
             font-size: 1.1rem;
         }
 
         /* Gallery Stats */
         .gallery-stats {
-            background: white;
+            background: var(--color-surface);
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(2,6,23,0.06);
         }
 
         .stats-grid {
@@ -101,12 +101,12 @@
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #667eea;
+                color: var(--color-primary);
             display: block;
         }
 
         .stat-label {
-            color: #666;
+            color: var(--color-muted);
             font-size: 0.9rem;
             margin-top: 0.5rem;
         }
@@ -120,28 +120,28 @@
         }
 
         .photo-card {
-            background: white;
+            background: var(--color-surface);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .photo-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(2,6,23,0.12);
         }
 
         .photo-container {
             position: relative;
             width: 100%;
             aspect-ratio: 4/3;
-            background: linear-gradient(135deg, #a2b0f0, #ad7edc);
+                background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 40%, var(--color-surface) 60%), color-mix(in srgb, var(--color-primary) 25%, var(--color-surface) 75%));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--color-primary-foreground);
             font-size: 1.2rem;
             font-weight: 600;
             overflow: hidden;
@@ -161,12 +161,12 @@
         .photo-placeholder {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #a2b0f0, #ad7edc);
+                background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 40%, var(--color-surface) 60%), color-mix(in srgb, var(--color-primary) 25%, var(--color-surface) 75%));
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--color-primary-foreground);
             text-align: center;
         }
 
@@ -181,13 +181,13 @@
         }
 
         .photo-info h3 {
-            color: #333;
+            color: var(--color-text);
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
         }
 
         .photo-info p {
-            color: #666;
+            color: var(--color-muted);
             font-size: 0.95rem;
             line-height: 1.4;
             margin-bottom: 1rem;
@@ -197,7 +197,7 @@
             display: flex;
             gap: 1rem;
             font-size: 0.85rem;
-            color: #888;
+            color: var(--color-muted);
             flex-wrap: wrap;
         }
 
@@ -215,7 +215,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: color-mix(in srgb, black 90%, transparent 10%);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -235,7 +235,7 @@
             position: absolute;
             top: -40px;
             right: 0;
-            color: white;
+            color: var(--color-primary-foreground);
             font-size: 2rem;
             cursor: pointer;
             background: none;
@@ -245,15 +245,15 @@
         }
 
         .lightbox-close:hover {
-            color: #667eea;
+            color: var(--color-primary);
         }
 
         .lightbox-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: color-mix(in srgb, var(--color-surface) 20%, transparent 80%);
+            color: var(--color-primary-foreground);
             border: none;
             font-size: 2rem;
             padding: 1rem;
@@ -287,7 +287,7 @@
             height: 20px;
             border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            border-top-color: white;
+            border-top-color: var(--color-border);
             animation: spin 1s ease-in-out infinite;
         }
 
@@ -331,16 +331,16 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: var(--color-surface);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            background: var(--color-muted);
         }
 
         /* Smooth scrolling */
@@ -350,15 +350,15 @@
 
         /* Footer */
         .gallery-footer {
-            background: white;
+            background: var(--color-surface);
             padding: 2rem 0;
             text-align: center;
             margin-top: 3rem;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -5px 20px rgba(2,6,23,0.06);
         }
 
         .gallery-footer p {
-            color: #666;
+            color: var(--color-muted);
             margin-bottom: 1rem;
         }
 
@@ -370,14 +370,14 @@
         }
 
         .footer-links a {
-            color: #667eea;
+            color: var(--color-primary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: #333;
+            color: var(--color-text);
         }
     </style>
 </head>
@@ -423,13 +423,13 @@
 
         <!-- Gallery Modal Trigger -->
         <div class="container" style="text-align:center; margin-top:3rem;">
-            <button id="open-sf-gallery" style="font-size:1.2em; padding:1em 2em; background:linear-gradient(135deg,#667eea,#764ba2); color:white; border:none; border-radius:25px; cursor:pointer;">View San Francisco Gallery</button>
+                <button id="open-sf-gallery" class="btn-primary" style="font-size:1.2em; padding:1em 2em; border:none; border-radius:25px; cursor:pointer;">View San Francisco Gallery</button>
         </div>
     </div>
 
     <!-- Shared Gallery Modal -->
     <div id="gallery-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:1000;">
-        <div class="modal-content" style="background:white; margin:40px auto; max-width:900px; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); position:relative; padding:30px;"></div>
+    <div class="modal-content" style="background:var(--color-surface); margin:40px auto; max-width:900px; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); position:relative; padding:30px;"></div>
     </div>
 
     <!-- Gallery Footer -->

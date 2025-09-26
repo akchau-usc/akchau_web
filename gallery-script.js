@@ -318,14 +318,14 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: space-between;
             align-items: center;
             padding: 20px 0 10px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--color-border);
             margin-bottom: 20px;
         }
         
         .grid-title {
             margin: 0;
             font-size: 1.5em;
-            color: #333;
+            color: #ffffff !important; /* force white for album titles */
         }
         
         .photo-grid {
@@ -339,10 +339,10 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 100%; /* ensure grid spans full modal width so columns can form */
         }
 
-        /* Make the grid header and title white when displayed in the modal */
+        /* Make the grid header and title use theme-aware foreground */
         .modal-content .grid-header,
         .modal-content .grid-title {
-            color: white;
+            color: #ffffff !important; /* ensure modal header/title stays white */
         }
         
         .grid-item {
@@ -351,12 +351,13 @@ document.addEventListener('DOMContentLoaded', function() {
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background: #f5f5f5;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
         }
         
         .grid-item:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 24px rgba(2,6,23,0.08);
         }
         
         .grid-item img {
@@ -390,8 +391,8 @@ document.addEventListener('DOMContentLoaded', function() {
             position: absolute;
             top: 60px;
             left: 20px;
-            background: rgba(0,0,0,0.7);
-            color: white;
+            background: color-mix(in srgb, var(--color-text) 0.12, transparent);
+            color: var(--color-primary-foreground);
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
@@ -402,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         .back-to-grid:hover {
-            background: rgba(0,0,0,0.9);
+            background: color-mix(in srgb, var(--color-text) 0.18, transparent);
         }
         
         @media (max-width: 1024px) {
