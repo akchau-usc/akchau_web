@@ -903,8 +903,8 @@ function openLightbox(index) {
         lightboxImage.innerHTML = `<img src="${images[index].src}" alt="${images[index].title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">`;
     };
     img.onerror = function() {
-        // Image failed to load, show placeholder
-        lightboxImage.innerHTML = `<div style="width: 600px; height: 400px; background: linear-gradient(135deg, #a2b0f0, #ad7edc); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; border-radius: 10px;">${images[index].placeholder}</div>`;
+        // Image failed to load, show placeholder using token-driven classes
+        lightboxImage.innerHTML = `<div class="placeholder-box">${images[index].placeholder}</div>`;
     };
     img.src = images[index].src;
     
@@ -930,7 +930,7 @@ function nextImage() {
         lightboxImage.innerHTML = `<img src="${images[currentImageIndex].src}" alt="${images[currentImageIndex].title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">`;
     };
     img.onerror = function() {
-        lightboxImage.innerHTML = `<div style="width: 600px; height: 400px; background: linear-gradient(135deg, #a2b0f0, #ad7edc); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; border-radius: 10px;">${images[currentImageIndex].placeholder}</div>`;
+        lightboxImage.innerHTML = `<div class="placeholder-box">${images[currentImageIndex].placeholder}</div>`;
     };
     img.src = images[currentImageIndex].src;
 }
@@ -946,7 +946,7 @@ function previousImage() {
         lightboxImage.innerHTML = `<img src="${images[currentImageIndex].src}" alt="${images[currentImageIndex].title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">`;
     };
     img.onerror = function() {
-        lightboxImage.innerHTML = `<div style="width: 600px; height: 400px; background: linear-gradient(135deg, #a2b0f0, #ad7edc); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; border-radius: 10px;">${images[currentImageIndex].placeholder}</div>`;
+        lightboxImage.innerHTML = `<div class="placeholder-box">${images[currentImageIndex].placeholder}</div>`;
     };
     img.src = images[currentImageIndex].src;
 }
