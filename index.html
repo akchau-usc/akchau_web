@@ -28,7 +28,6 @@
 <body>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
         <span class="sr-only">Toggle dark mode</span>
-        <!-- Sun (light) icon -->
         <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
             <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -42,7 +41,6 @@
                 <path d="M17.66 6.34l1.41-1.41"></path>
             </g>
         </svg>
-        <!-- Moon (dark) icon -->
         <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
         </svg>
@@ -69,13 +67,6 @@
             <p>Machine Learning Engineer & Researcher</p>
             <a href="#contact" class="cta-button">Get In Touch</a>
         </div>
-        
-        <!-- Floating particles -->
-        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="top: 80%; left: 80%; animation-delay: 2s;"></div>
-        <div class="particle" style="top: 40%; left: 20%; animation-delay: 4s;"></div>
-        <div class="particle" style="top: 60%; left: 90%; animation-delay: 1s;"></div>
-        <div class="particle" style="top: 30%; left: 70%; animation-delay: 3s;"></div>
     </section>
 
     <!-- About Section -->
@@ -286,7 +277,7 @@ bias-field correction, MNI152 registration</li>
         </div>
         
         <div class="photography-note">
-            <p><em>Click any category to explore the full gallery</em></p>
+            <p>Click any category to explore the full gallery</p>
         </div>
     </div>
 </section>
@@ -424,16 +415,20 @@ bias-field correction, MNI152 registration</li>
                 });
             });
 
-            // Header scroll effect (theme-aware): toggle .scrolled instead of inline color
+            // Header scroll effect
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('header');
-                if (window.scrollY > 100) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
 
-            // Animate elements on scroll
+            // Subtle fade-in animation on scroll
             const observerOptions = {
                 threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                rootMargin: '0px 0px -30px 0px'
             };
 
             const observer = new IntersectionObserver(function(entries) {
@@ -445,55 +440,18 @@ bias-field correction, MNI152 registration</li>
                 });
             }, observerOptions);
 
-            // Observe all elements for animation
+            // Apply subtle animations to content sections
             document.querySelectorAll('.experience-item, .project-card, .skill-category, .photo-item').forEach(el => {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                el.style.transform = 'translateY(16px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(el);
             });
-
-            // Photo card hover effects
-            document.querySelectorAll('.photo-item').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-
-            // Hero section typing effect
-            const heroTitle = document.querySelector('.hero h1');
-            const heroSubtitle = document.querySelector('.hero p');
-            
-            function typeWriter(element, text, speed = 100) {
-                if (element) {
-                    element.innerHTML = '';
-                    let i = 0;
-                    const timer = setInterval(() => {
-                        if (i < text.length) {
-                            element.innerHTML += text.charAt(i);
-                            i++;
-                        } else {
-                            clearInterval(timer);
-                        }
-                    }, speed);
-                }
-            }
-
-            setTimeout(() => {
-                if (heroTitle) typeWriter(heroTitle, 'Anna Chau', 80);
-                setTimeout(() => {
-                    if (heroSubtitle) typeWriter(heroSubtitle, 'Machine Learning Engineer & Researcher', 60);
-                }, 1000);
-            }, 500);
         });
     </script>
 
     <script>
-        // Wire the theme toggle button to the ThemeManager if available
+        // Theme toggle functionality
         (function(){
             var btn = document.getElementById('theme-toggle');
             if(!btn) return;
@@ -504,36 +462,16 @@ bias-field correction, MNI152 registration</li>
             btn.addEventListener('click', function(){
                 if(window.__toggleSiteTheme) window.__toggleSiteTheme();
                 else {
-                    // fallback: toggle attribute
-                    if(document.documentElement.getAttribute('data-theme') === 'dark') document.documentElement.removeAttribute('data-theme');
-                    else document.documentElement.setAttribute('data-theme','dark');
+                    if(document.documentElement.getAttribute('data-theme') === 'dark') {
+                        document.documentElement.removeAttribute('data-theme');
+                    } else {
+                        document.documentElement.setAttribute('data-theme','dark');
+                    }
                 }
                 updateAria();
             });
-            // sync on themechange events emitted by ThemeManager
             window.addEventListener('themechange', updateAria);
-            // initial state
             updateAria();
-        })();
-    </script>
-    <script>
-        // Toggle header.on-hero when header overlaps the hero section
-        (function(){
-            function updateHeaderHeroState(){
-                const header = document.querySelector('header');
-                const hero = document.querySelector('.hero');
-                if(!header || !hero) return;
-                const hRect = header.getBoundingClientRect();
-                const heroRect = hero.getBoundingClientRect();
-                // if header bottom intersects hero top area (i.e., header on top of hero), enable on-hero
-                const overlaps = heroRect.top < (hRect.bottom + 10);
-                header.classList.toggle('on-hero', overlaps && window.scrollY < 120);
-            }
-            window.addEventListener('scroll', updateHeaderHeroState, {passive:true});
-            window.addEventListener('resize', updateHeaderHeroState);
-            document.addEventListener('DOMContentLoaded', updateHeaderHeroState);
-            // Also run once after theme init
-            setTimeout(updateHeaderHeroState, 300);
         })();
     </script>
 
