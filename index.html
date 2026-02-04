@@ -74,30 +74,46 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a Machine Learning Engineer and Researcher pursuing my Master's in Electrical and Computer Engineering with a focus on Machine Learning and Data Science at the University of Southern California. I earned my Bachelor's in Electrical and Computer Engineering from Temple University in Philadelphia, where I discovered my passion for machine learning during my final years.</p>
-                    
-                    <p>With expertise spanning theoretical foundations and practical applications, I specialize in developing innovative solutions that translate cutting-edge research into real-world impact. I'm driven by the challenge of making AI more accessible, efficient, and transformative across diverse domains. As I enter into my second year at USC, I find myself intrigued by the emerging impact of AI in the biotechnology world.</p>
+                <div class="about-headshot">
+                    <img src="photos/headshot.jpg" alt="Anna Chau headshot" class="headshot-img">
                 </div>
-                
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <span class="stat-number">BS</span>
-                        <span class="stat-label">Electrical & Computer Engineering</span>
-                        <span class="stat-label-extra">Temple University, Philadelphia, PA</span>
+                <div class="about-main">
+                    <div class="about-text">
+                        <p>I'm a Machine Learning Engineer and Researcher pursuing my Master's in Electrical and Computer Engineering with a focus on Machine Learning and Data Science at the University of Southern California. I earned my Bachelor's in Electrical and Computer Engineering from Temple University in Philadelphia, where I discovered my passion for machine learning during my final years.</p>
+                        
+                        <p>With expertise spanning theoretical foundations and practical applications, I specialize in developing innovative solutions that translate cutting-edge research into real-world impact. I'm driven by the challenge of making AI more accessible, efficient, and transformative across diverse domains. As I enter into my second year at USC, I find myself intrigued by the emerging impact of AI in the biotechnology world.</p>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number">MS</span>
-                        <span class="stat-label">Electrical & Computer Engineering, ML & DS</span>
-                        <span class="stat-label-extra">University of Southern California, Los Angeles, CA</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">3.63</span>
-                        <span class="stat-label">GPA</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">2+</span>
-                        <span class="stat-label">Years Experience</span>
+                    
+                    <div class="about-details">
+                        <div class="about-subsection">
+                            <h3 class="about-subsection-title">Education</h3>
+                            <div class="education-list">
+                                <div class="education-item">
+                                    <div class="education-degree">MS in Electrical & Computer Engineering</div>
+                                    <div class="education-focus">Machine Learning & Data Science</div>
+                                    <div class="education-school">University of Southern California, Los Angeles, CA</div>
+                                    <div class="education-gpa">GPA: 3.80</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">BS in Electrical & Computer Engineering</div>
+                                    <div class="education-school">Temple University, Philadelphia, PA</div>
+                                    <div class="education-gpa">GPA: 3.63</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-subsection">
+                            <h3 class="about-subsection-title">Experience</h3>
+                            <div class="experience-summary">
+                                <div class="experience-stat">
+                                    <span class="experience-stat-number">2</span>
+                                    <span class="experience-stat-label">Years Research</span>
+                                </div>
+                                <div class="experience-stat">
+                                    <span class="experience-stat-number">1</span>
+                                    <span class="experience-stat-label">Year Industry</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,51 +126,54 @@
             <h2 class="section-title">Experience</h2>
             <div class="experience-list">
                 <div class="experience-item">
-                    <div class="experience-dates">Aug 2023 — May 2024</div>
                     <div class="experience-content">
                         <div class="experience-header">
                             <h3 class="experience-title">Machine Learning Researcher</h3>
-                            <div class="experience-company">Temple University, Computer Fusion Laboratory</div>
+                            <div class="experience-meta">
+                                <span class="experience-company">Temple University, Computer Fusion Laboratory</span>
+                                <span class="experience-dates">Aug 2023 — May 2024</span>
+                            </div>
                         </div>
                         <div class="experience-description">
-                            Collaborated on advanced computer vision research focusing on maritime infrastructure assessment and automated defect detection systems.
+                            Developed computer vision solutions for maritime infrastructure assessment and corrosion detection systems.
                         </div>
                         <ul class="experience-highlights">
-                            <li>Developed multi-tiered corrosion categorization system for ship hull analysis using state-of-the-art computer vision techniques</li>
-                            <li>Maintained interactive web tool for data collection and annotation, resulting in 30% dataset growth</li>
-                            <li>Implemented machine learning pipelines for automated defect detection and classification</li>
+                            <li>Optimized a ResNet-based CNN to achieve >92% accuracy in multi-class corrosion severity classification for real-time detection of ship hull images to enhance safety and reliability in maritime operations</li>
+                            <li>Maintained an interactive corrosion-detection web application with React front end and Flask/MongoDB backend to streamline image visualization and data management</li>
+                            <li>Collected and manually annotated ship hull images under varying environmental conditions to label corrosion regions and severity levels to build a rich supervised training dataset</li>
                         </ul>
                         <div class="experience-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Web Development</span>
-                            <span class="tech-tag">Data Annotation</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">MongoDB</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="experience-item">
-                    <div class="experience-dates">May 2023 — Aug 2023</div>
                     <div class="experience-content">
                         <div class="experience-header">
                             <h3 class="experience-title">Test Engineering Intern</h3>
-                            <div class="experience-company">Vicor Corporation</div>
+                            <div class="experience-meta">
+                                <span class="experience-company">Vicor Corporation</span>
+                                <span class="experience-dates">May 2023 — Aug 2023</span>
+                            </div>
                         </div>
                         <div class="experience-description">
                             Conducted comprehensive performance analyses on power conversion systems while contributing to Six Sigma quality improvement initiatives.
                         </div>
                         <ul class="experience-highlights">
-                            <li>Performed detailed performance analyses on power converters, ensuring optimal efficiency and reliability</li>
-                            <li>Enhanced Six Sigma project outcomes by optimizing measurement ranges and testing protocols</li>
-                            <li>Achieved significant cost reduction through systematic optimization of testing procedures and workflows</li>
+                            <li>Collected and analyzed performance data of power units post-production, evaluating voltages, efficiency, load regulation, and thermal performance across varying load conditions</li>
+                            <li>Utilized SQL and Excel-based statistical analysis to assess unit compliance with engineering specifications and applied Six Sigma methodologies to identify and quantify variation across multiple production runs</li>
+                            <li>Optimized measurement acceptance ranges and test sequence configurations and maintained safety margins while reducing false-reject rates and decreasing average test time by 43 seconds per unit</li>
                         </ul>
                         <div class="experience-tech">
-                            <span class="tech-tag">Test Automation</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Excel</span>
                             <span class="tech-tag">Six Sigma</span>
-                            <span class="tech-tag">Power Electronics</span>
                             <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">Process Optimization</span>
                         </div>
                     </div>
                 </div>
@@ -166,72 +185,93 @@
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">Autism Severity Detection</div>
-                        <div class="project-tech">Python • Signal Processing</div>
-                    </div>
+            <div class="projects-list">
+                <div class="project-item">
                     <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">SocialCycle - Mobile Application</h3>
+                            <span class="project-dates">Sep 2025 — Present</span>
+                        </div>
                         <div class="project-description">
-                            Researching into a multi-modal machine learning model to predict DSM-5 autism support needs from T1 MRI embeddings.
+                            Developing a cross-platform application (React Native/TypeScript) that centralizes local cycling and running club events into a unified, data-driven calendar accessible on web and mobile applications.
+                        </div>
                         <ul class="project-highlights">
-                            <li>Building a reproducible neuroimaging pre-processing pipeline that includes: NIfTI I/O, skull-stripping (HD-BET/BET),
-bias-field correction, MNI152 registration</li>
+                            <li>Implemented secure OAuth2 integration with the Instagram Graph API to ingest structured and unstructured social data through a compliant data ingestion pipeline built in FastAPI</li>
+                            <li>Engineering a scalable backend deployed on AWS (EC2, S3, RDS) with Docker-based microservices and asynchronous workers to handle media ingestion, ML inference, and event-verification workflows</li>
+                            <li>Designing ML models utilizing NLP (caption parsing, hashtag analysis) to extract ride details and auto-populate calendar data</li>
                         </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">SocialCycle - Mobile App Prototype</div>
-                        <div class="project-tech">JavaScript • ReactNative • WebSocket API • FastAPI </div>
-                    </div>
+                <div class="project-item">
                     <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Autism Severity Detection</h3>
+                            <span class="project-dates">Aug 2025 — Present</span>
+                        </div>
                         <div class="project-description">
-                            Building a cross-platform full-stack mobile app that allows cyclists to discover and join local social riding groups and to smoothly plan group rides/routes.
+                            Researching multi-modal learning to predict DSM-5 autism support needs from T1 MRI embeddings with possible genomic variant-level features.
                         </div>
                         <ul class="project-highlights">
-                            <li>Implmenting REST and WebSocket connectivity between React Native and FastAPI for low-latency messaging and live group updates</li>
-                            <li>Architecting back-end to support integration with external APIs, Strava and Instagram</li>
-                            <li>Arranging database schemas for efficiently store ride history and route metadata</li>
+                            <li>Building a reproducible neuroimaging pre-processing pipeline that includes NIfTI I/O, skull-stripping (HD-BET/BET), bias-field correction, MNI152 registration, resampling, and intensity normalization (WhiteStripe/z-score)</li>
                         </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Neuroimaging</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">Cardiovascular Disease Detector</div>
-                        <div class="project-tech">Python • PyTorch • Signal Processing</div>
-                    </div>
+                <div class="project-item">
                     <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Cardiovascular Disease Detection</h3>
+                            <span class="project-dates">Aug 2023 — May 2024</span>
+                        </div>
                         <div class="project-description">
-                            Advanced CNN for detecting six cardiovascular diseases from ECG signals.
+                            Optimized a convolutional neural network to detect the presence of six cardiovascular diseases from raw electrocardiogram (ECG) signals.
                         </div>
                         <ul class="project-highlights">
-                            <li>Improved F1-score from 0.83 to 0.89</li>
-                            <li>Processed 2.3M raw ECG traces</li>
-                            <li>Feature importance analysis via ablation studies</li>
-                            <li>Multi-collinearity addressed for optimal diagnostics</li>
+                            <li>Raised F1-score from 0.83 to 0.89 to improve diagnostic automation and model generalization</li>
+                            <li>Processed and standardized dataset of ~2.3 million ECG traces to normalize scaling variations across 12-lead recordings from heterogeneous ECG machines</li>
+                            <li>Investigated feature importance across precordial leads and mitigated multicollinearity in input signals for optimal channel configurations</li>
                         </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">Signal Processing</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">Micromouse Autonomous Robot</div>
-                        <div class="project-tech">Python • ROS2 • AWS • Gazebo</div>
-                    </div>
+                <div class="project-item">
                     <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Micromouse Autonomous Robot</h3>
+                            <span class="project-dates">Feb 2022 — Dec 2022</span>
+                        </div>
                         <div class="project-description">
-                            Autonomous maze-solving robot with computer vision capabilities.
+                            Built an autonomous maze-solving robot with computer vision and cloud computing capabilities.
                         </div>
                         <ul class="project-highlights">
-                            <li>LiDAR 3D point cloud vision system</li>
-                            <li>Advanced maze-solving algorithms</li>
-                            <li>ML model for flower type identification</li>
-                            <li>AWS Cloud integration for processing</li>
+                            <li>Tailored the functionality of a robot by managing ROS2 packages designed for three-dimensional movement in Gazebo simulated maze</li>
+                            <li>Implemented programs within AWS Cloud server to enable robot to autonomously explore a maze using LiDAR 3D point cloud vision and maze solving algorithms</li>
                         </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">ROS2</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Gazebo</span>
+                            <span class="tech-tag">LiDAR</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -297,8 +337,6 @@ bias-field correction, MNI152 registration</li>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">MATLAB</span>
-
-
                     </div>
                 </div>
 
@@ -333,7 +371,6 @@ bias-field correction, MNI152 registration</li>
                         <span class="skill-tag">Docker</span>
                         <span class="skill-tag">AWS EC2/S3</span>
                         <span class="skill-tag">Git/Github</span>
-
                     </div>
                 </div>
 
@@ -349,7 +386,6 @@ bias-field correction, MNI152 registration</li>
                     </div>
                 </div>
 
-
                 <div class="skill-category">
                     <div class="skill-icon">🚴🏼</div>
                     <h3>Personal Hobbies</h3>
@@ -358,7 +394,6 @@ bias-field correction, MNI152 registration</li>
                         <span class="skill-tag">Photography</span>
                         <span class="skill-tag">Hiking</span>
                         <span class="skill-tag">Cycling (Current favorite!)</span>
-
                     </div>
                 </div>
             </div>
