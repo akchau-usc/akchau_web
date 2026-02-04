@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micromouse Autonomous Robot - Anna Chau</title>
+    <script>
+        (function(){
+            try{
+                var key = 'theme';
+                var stored = localStorage.getItem(key);
+                if(stored==='dark') document.documentElement.setAttribute('data-theme','dark');
+                else if(stored==='light') document.documentElement.removeAttribute('data-theme');
+                else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+            }catch(e){/* ignore */}
+        })();
+    </script>
+    <link rel="stylesheet" href="../styles/theme.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project-details.css">
+    <script src="../theme.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
+        <span class="sr-only">Toggle dark mode</span>
+        <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M4.93 19.07l1.41-1.41"></path>
+                <path d="M17.66 6.34l1.41-1.41"></path>
+            </g>
+        </svg>
+        <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
+        </svg>
+    </button>
+
+    <header>
+        <nav class="container project-nav">
+            <a href="../index.html" class="logo">Anna K. Chau</a>
+        </nav>
+    </header>
+
+    <main class="project-detail">
+        <div class="container">
+            
+            <article class="project-article">
+                <header class="project-detail-header">
+                    <a href="javascript:history.back()" class="back-link">← Back</a>
+                    <h1>Micromouse Autonomous Robot</h1>
+                    <p class="project-subtitle">Maze-Solving Robot with Computer Vision & Cloud Computing</p>
+                    <div class="project-meta">
+                        <span class="project-date">Feb 2022 — Dec 2022</span>
+                        <span class="project-status status-completed">Completed</span>
+                    </div>
+                </header>
+
+                <section class="project-section">
+                    <h2>Overview</h2>
+                    <p>The Micromouse project involved building an autonomous maze-solving robot capable of navigating complex environments using computer vision and cloud computing capabilities. This project combined robotics, embedded systems, and cloud infrastructure to create an intelligent navigation system.</p>
+                </section>
+
+                <section class="project-section">
+                    <h2>Project Background</h2>
+                    <p>Micromouse is a classic robotics challenge where small autonomous robots must solve a maze as quickly as possible. This implementation took a modern approach by leveraging:</p>
+                    <ul>
+                        <li>ROS2 (Robot Operating System 2) for modular robot software development</li>
+                        <li>Gazebo simulation for testing and development before physical deployment</li>
+                        <li>AWS Cloud computing for heavy computational tasks</li>
+                        <li>LiDAR-based 3D point cloud vision for environment perception</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Technical Implementation</h2>
+                    
+                    <h3>ROS2 Architecture</h3>
+                    <ul>
+                        <li>Tailored the functionality of the robot by managing ROS2 packages</li>
+                        <li>Designed nodes for sensor processing, path planning, and motor control</li>
+                        <li>Implemented inter-process communication using ROS2 topics and services</li>
+                        <li>Developed launch files for coordinating multiple subsystems</li>
+                    </ul>
+
+                    <h3>Simulation Environment</h3>
+                    <ul>
+                        <li>Created realistic maze environments in Gazebo simulator</li>
+                        <li>Configured physics parameters for accurate robot behavior modeling</li>
+                        <li>Enabled three-dimensional movement testing before hardware deployment</li>
+                        <li>Developed custom maze generation tools for varied testing scenarios</li>
+                    </ul>
+
+                    <h3>Perception System</h3>
+                    <ul>
+                        <li>Integrated LiDAR sensor for 3D point cloud data acquisition</li>
+                        <li>Implemented real-time obstacle detection and mapping</li>
+                        <li>Developed localization algorithms for position tracking within the maze</li>
+                        <li>Created occupancy grid representations of the maze structure</li>
+                    </ul>
+
+                    <h3>Cloud Computing Integration</h3>
+                    <ul>
+                        <li>Deployed computation-intensive algorithms on AWS Cloud servers</li>
+                        <li>Enabled offloading of path planning calculations to improve response time</li>
+                        <li>Implemented secure communication between robot and cloud services</li>
+                        <li>Utilized cloud resources for machine learning model inference</li>
+                    </ul>
+
+                    <h3>Maze Solving Algorithms</h3>
+                    <ul>
+                        <li>Implemented flood-fill algorithm for optimal path discovery</li>
+                        <li>Developed wall-following strategies for initial maze exploration</li>
+                        <li>Created path optimization routines for minimizing solve time</li>
+                        <li>Designed adaptive algorithms that improve with each maze run</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Technologies Used</h2>
+                    <div class="tech-grid">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">ROS2</span>
+                        <span class="tech-tag">Gazebo</span>
+                        <span class="tech-tag">AWS EC2</span>
+                        <span class="tech-tag">LiDAR</span>
+                        <span class="tech-tag">Point Cloud Library</span>
+                        <span class="tech-tag">SLAM</span>
+                        <span class="tech-tag">Nav2</span>
+                        <span class="tech-tag">Linux</span>
+                    </div>
+                </section>
+
+
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anna Chau. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        (function(){
+            var btn = document.getElementById('theme-toggle');
+            if(!btn) return;
+            function updateAria() {
+                var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            }
+            btn.addEventListener('click', function(){
+                if(window.__toggleSiteTheme) window.__toggleSiteTheme();
+                else {
+                    if(document.documentElement.getAttribute('data-theme') === 'dark') {
+                        document.documentElement.removeAttribute('data-theme');
+                    } else {
+                        document.documentElement.setAttribute('data-theme','dark');
+                    }
+                }
+                updateAria();
+            });
+            window.addEventListener('themechange', updateAria);
+            updateAria();
+        })();
+    </script>
+</body>
+</html>

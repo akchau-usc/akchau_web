@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Severity Detection - Anna Chau</title>
+    <script>
+        (function(){
+            try{
+                var key = 'theme';
+                var stored = localStorage.getItem(key);
+                if(stored==='dark') document.documentElement.setAttribute('data-theme','dark');
+                else if(stored==='light') document.documentElement.removeAttribute('data-theme');
+                else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+            }catch(e){/* ignore */}
+        })();
+    </script>
+    <link rel="stylesheet" href="../styles/theme.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project-details.css">
+    <script src="../theme.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
+        <span class="sr-only">Toggle dark mode</span>
+        <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M4.93 19.07l1.41-1.41"></path>
+                <path d="M17.66 6.34l1.41-1.41"></path>
+            </g>
+        </svg>
+        <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"></path>
+        </svg>
+    </button>
+
+    <header>
+        <nav class="container project-nav">
+            <a href="../index.html" class="logo">Anna K. Chau</a>
+        </nav>
+    </header>
+
+    <main class="project-detail">
+        <div class="container">
+            
+            <article class="project-article">
+                <header class="project-detail-header">
+                    <a href="javascript:history.back()" class="back-link">← Back</a>
+                    <h1>Autism Severity Detection</h1>
+                    <p class="project-subtitle">Multi-Modal Learning for DSM-5 Support Needs Prediction</p>
+                    <div class="project-meta">
+                        <span class="project-date">Aug 2025 — Present</span>
+                        <span class="project-status status-active">In Progress</span>
+                    </div>
+                </header>
+
+                <section class="project-section">
+                    <h2>Overview</h2>
+                    <p>This research project explores multi-modal deep learning approaches to predict autism support needs as defined by the DSM-5 classification system. By combining neuroimaging data (T1 MRI scans) with potential genomic features, the goal is to develop more objective and accurate tools for assessing autism severity levels.</p>
+                </section>
+
+                <section class="project-section">
+                    <h2>Research Motivation</h2>
+                    <p>Autism spectrum disorder (ASD) severity assessment currently relies heavily on behavioral observations and clinical interviews, which can be subjective and vary between practitioners. This project aims to complement clinical assessment with quantitative biomarkers derived from brain imaging and genetic data, potentially leading to:</p>
+                    <ul>
+                        <li>More consistent and reproducible severity classifications</li>
+                        <li>Earlier identification of support needs</li>
+                        <li>Better understanding of the neurobiological basis of autism</li>
+                        <li>Personalized intervention planning</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Technical Approach</h2>
+                    
+                    <h3>Neuroimaging Pre-processing Pipeline</h3>
+                    <p>Building a reproducible and robust pipeline for processing T1-weighted MRI scans:</p>
+                    <ul>
+                        <li><strong>NIfTI I/O:</strong> Handling medical imaging file formats for reading and writing brain scans</li>
+                        <li><strong>Skull-stripping:</strong> Implementing HD-BET and FSL BET for brain extraction</li>
+                        <li><strong>Bias-field correction:</strong> Removing intensity inhomogeneities caused by scanner artifacts</li>
+                        <li><strong>MNI152 Registration:</strong> Aligning all brain scans to a standard template space</li>
+                        <li><strong>Resampling:</strong> Standardizing voxel dimensions across datasets</li>
+                        <li><strong>Intensity Normalization:</strong> Applying WhiteStripe and z-score normalization methods</li>
+                    </ul>
+
+                    <h3>Feature Extraction</h3>
+                    <ul>
+                        <li>Extracting embeddings from pre-trained neuroimaging models</li>
+                        <li>Investigating potential integration of genomic variant-level features</li>
+                        <li>Exploring multi-modal fusion strategies for combining imaging and genetic data</li>
+                    </ul>
+
+                    <h3>Model Development</h3>
+                    <ul>
+                        <li>Designing architectures for multi-class classification (DSM-5 support levels)</li>
+                        <li>Implementing attention mechanisms for interpretable predictions</li>
+                        <li>Developing validation strategies appropriate for medical imaging applications</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Technologies Used</h2>
+                    <div class="tech-grid">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">NiBabel</span>
+                        <span class="tech-tag">ANTsPy</span>
+                        <span class="tech-tag">FSL</span>
+                        <span class="tech-tag">HD-BET</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">SciPy</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">MONAI</span>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anna Chau. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        (function(){
+            var btn = document.getElementById('theme-toggle');
+            if(!btn) return;
+            function updateAria() {
+                var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            }
+            btn.addEventListener('click', function(){
+                if(window.__toggleSiteTheme) window.__toggleSiteTheme();
+                else {
+                    if(document.documentElement.getAttribute('data-theme') === 'dark') {
+                        document.documentElement.removeAttribute('data-theme');
+                    } else {
+                        document.documentElement.setAttribute('data-theme','dark');
+                    }
+                }
+                updateAria();
+            });
+            window.addEventListener('themechange', updateAria);
+            updateAria();
+        })();
+    </script>
+</body>
+</html>
