@@ -156,6 +156,22 @@ body:has(.project-detail) header {
     color: var(--color-accent);
 }
 
+.project-image {
+    margin: 24px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .tech-grid {
     display: flex;
     flex-wrap: wrap;

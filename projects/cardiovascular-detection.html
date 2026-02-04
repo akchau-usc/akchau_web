@@ -66,7 +66,7 @@
 
                 <section class="project-section">
                     <h2>Overview</h2>
-                    <p>This project focused on optimizing a convolutional neural network (CNN) to detect the presence of six different cardiovascular diseases from raw 12-lead electrocardiogram (ECG) signals. The goal was to improve diagnostic automation and support clinical decision-making in cardiology.</p>
+                    <p>This project focused on optimizing a convolutional neural network (CNN) to detect the presence of six different cardiovascular diseases from raw 12-lead electrocardiogram (ECG) signals. The goal was to improve diagnostic automation and to explore clinical decision-making in cardiology.</p>
                 </section>
 
                 <section class="project-section">
@@ -78,6 +78,9 @@
                         <li>Reduce diagnostic delays in emergency situations</li>
                         <li>Serve as a second opinion for complex cases</li>
                     </ul>
+                    <div class="project-image">
+                        <img src="../photos/projects/cardiovascular-clinical.png" alt="Clinical significance illustration">
+                    </div>
                 </section>
 
                 <section class="project-section">
@@ -93,10 +96,13 @@
 
                     <h3>Model Architecture</h3>
                     <ul>
-                        <li>Optimized a 1D convolutional neural network architecture for temporal signal processing</li>
-                        <li>Implemented multi-task learning for simultaneous detection of six cardiovascular conditions</li>
-                        <li>Explored attention mechanisms to identify diagnostically relevant ECG segments</li>
+                        <li>Optimized a 1D CNN (implemented with Conv2D-style layers) for 4096-sample temporal signal classification using residual basic blocks and strided downsampling.</li>
+                        <li>Built a multi-label prediction head using global average pooling and a 512→6 linear layer with sigmoid activation to detect six cardiovascular conditions simultaneously.</li>
+                        <li>Evaluated interpretability methods to localize diagnostically relevant signal segments driving each label.</li>
                     </ul>
+                    <div class="project-image">
+                        <img src="../photos/projects/cardiovascular-architecture.png" alt="Model architecture diagram">
+                    </div>
 
                     <h3>Feature Analysis</h3>
                     <ul>
