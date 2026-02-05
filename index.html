@@ -23,7 +23,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
@@ -304,14 +304,16 @@
 <!-- Cat Blog Section -->
 <section id="zinnie" class="section zinnie-section">
     <div class="container">
-        <h2 class="section-title">Meet Zinnie 🐱</h2>
+        <h2 class="section-title">Meet Zinnie</h2>
         <div class="zinnie-content">
             <div class="zinnie-preview">
                 <img src="zinnie/pictures/zinnie-preview.jpg" alt="Zinnie the cat" class="zinnie-image">
             </div>
             <div class="zinnie-text">
                 <p>In my downtime, I am usually being supervised by my cat, Zinnie. She has her own blog where she documents her very important life. Please check it out!</p>
-                <a href="zinnie/index.html" class="zinnie-link" target="_blank">Visit Zinnie's Blog →</a>
+                <a href="zinnie/index.html" class="zinnie-link" target="_blank">
+                    <span class="zinnie-typing" data-text="Visit Zinnie's Blog →">Visit Zinnie's Blog →</span><span class="zinnie-cursor">|</span>
+                </a>
             </div>
         </div>
     </div>
@@ -547,6 +549,48 @@
             });
             window.addEventListener('themechange', updateAria);
             updateAria();
+        })();
+    </script>
+
+    <script>
+        // Zinnie button typewriter animation
+        (function(){
+            const typingText = document.querySelector('.zinnie-typing');
+            const cursor = document.querySelector('.zinnie-cursor');
+            
+            if (typingText && cursor) {
+                const originalText = typingText.getAttribute('data-text') || typingText.textContent;
+                
+                function typeWriter() {
+                    typingText.textContent = '';
+                    cursor.style.opacity = '1';
+                    
+                    let i = 0;
+                    const typeInterval = setInterval(() => {
+                        if (i < originalText.length) {
+                            typingText.textContent += originalText.charAt(i);
+                            i++;
+                        } else {
+                            clearInterval(typeInterval);
+                            setTimeout(() => {
+                                // Delete animation
+                                let j = originalText.length;
+                                const deleteInterval = setInterval(() => {
+                                    if (j > 0) {
+                                        typingText.textContent = originalText.substring(0, j - 1);
+                                        j--;
+                                    } else {
+                                        clearInterval(deleteInterval);
+                                        setTimeout(typeWriter, 500);
+                                    }
+                                }, 50);
+                            }, 3000);
+                        }
+                    }, 100);
+                }
+                
+                setTimeout(typeWriter, 1000);
+            }
         })();
     </script>
 
