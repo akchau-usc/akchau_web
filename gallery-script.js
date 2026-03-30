@@ -75,7 +75,42 @@ const galleries = {
         "photos/palos verdes/DSCF3146.JPG",
         "photos/palos verdes/DSCF3233.JPG",
         "photos/palos verdes/DSCF3136.JPG"
-    ]
+    ],
+
+"route-1": [
+    "photos/route1/DSCF5008.JPG",
+    "photos/route1/DSCF5010.JPG",
+    "photos/route1/DSCF5017.JPG",
+    "photos/route1/DSCF5041.JPG",
+    "photos/route1/DSCF5042.JPG",
+    "photos/route1/DSCF5067.JPG",
+    "photos/route1/DSCF5071.JPG",
+    "photos/route1/DSCF5076.JPG",
+    "photos/route1/DSCF5079.JPG",
+    "photos/route1/DSCF5086.JPG",
+    "photos/route1/DSCF5093.JPG",
+    "photos/route1/DSCF5111.JPG",
+    "photos/route1/DSCF5178.JPG"
+],
+"hawaii": [
+    "photos/hawaii/2276DC84-4647-4732-8977-F24AB0510C19.jpg",
+    "photos/hawaii/DSCF5225.jpg",
+    "photos/hawaii/DSCF5242.JPG",
+    "photos/hawaii/DSCF5256.jpg",
+    "photos/hawaii/DSCF5315.jpg",
+    "photos/hawaii/DSCF5329.JPG",
+    "photos/hawaii/DSCF5333.JPG",
+    "photos/hawaii/DSCF5359.JPG",
+    "photos/hawaii/DSCF5377.JPG",
+    "photos/hawaii/DSCF5418.JPG",
+    "photos/hawaii/DSCF5462.JPG",
+    "photos/hawaii/DSCF5482.JPG",
+    "photos/hawaii/DSCF5497.JPG",
+    "photos/hawaii/DSCF5522.JPG",
+    "photos/hawaii/DSCF5560.jpg",
+    "photos/hawaii/DSCF5567.jpg",
+    "photos/hawaii/DSCF5593.JPG"
+]
 };
 
 let currentGallery = [];
